@@ -1,0 +1,12 @@
+# YouTube videos to embed on the website
+# Source: GuggeMedia channel (@guggemedia)
+# Add new videos by appending a new entry with the YouTube video ID and title
+videos:
+  - id: "mhRDcywd3Q8"
+    title: "Auftritt in Olten 23.08.2025 - For Evigt"
+  - id: "rtsVnGJX614"
+    title: "Auftritt in Olten 23.08.2025 - Hey Soul Sister"
+  - id: "HiNEywxJCGc"
+    title: "Auftritt in Olten 23.08.2025 - Amadeus"
+  - id: "LmlAQ3NMwCo"
+    title: "Auftritt in Olten 23.08.2025 - Air is Free"

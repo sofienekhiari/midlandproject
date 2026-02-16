@@ -1,0 +1,933 @@
+/* ============================================================
+   Midland Project — Main Stylesheet
+   Design: Inspired by Sonaar Apex theme
+   Colors: Dark Red #49090B, Dark Blue #181A1F, White #FFFFFF
+   Font: Josefin Sans (Google Fonts)
+   ============================================================ */
+
+/* --- CSS Custom Properties --- */
+:root {
+  --color-red: #49090B;
+  --color-dark: #181A1F;
+  --color-white: #FFFFFF;
+  --color-gray: #7F7F7F;
+  --font-main: "Josefin Sans", sans-serif;
+  --font-display: "Syne", sans-serif;
+  --max-width: 1100px;
+}
+
+/* --- Reset & Base --- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--color-dark);
+  background-color: var(--color-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--color-red);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-dark);
+}
+
+/* --- Utility --- */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-padding {
+  padding: 70px 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+/* --- Section Divider (line with circle) --- */
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 24px auto 0;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  width: 60px;
+  height: 1px;
+  background-color: var(--color-dark);
+}
+
+.divider-circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--color-dark);
+  flex-shrink: 0;
+}
+
+/* Divider on dark backgrounds */
+.dark-section .divider::before,
+.dark-section .divider::after {
+  background-color: var(--color-white);
+}
+
+.dark-section .divider-circle {
+  border-color: var(--color-white);
+}
+
+/* --- Eyebrow Label --- */
+.eyebrow {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 7.8px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+/* --- Section Title --- */
+.section-title {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.navbar {
+  padding: 12px 0;
+  background-color: var(--color-white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-logo img {
+  height: 44px;
+  width: auto;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+
+.navbar-links a {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--color-dark);
+  transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: var(--color-red);
+}
+
+/* Social icons in nav */
+.navbar-social {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navbar-social a {
+  color: var(--color-dark);
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.navbar-social a:hover {
+  color: var(--color-red);
+}
+
+/* Mobile menu toggle */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-dark);
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+/* ============================================================
+   HERO SECTION — Full-screen photo (Präscheners style)
+   ============================================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 8vh;
+  color: var(--color-white);
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Background photo */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+/* Dark overlay with red-tinted gradient */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(to bottom,
+      rgba(24, 26, 31, 0.65) 0%,
+      rgba(24, 26, 31, 0.55) 40%,
+      rgba(24, 26, 31, 0.7) 70%,
+      rgba(24, 26, 31, 0.95) 100%),
+    linear-gradient(to bottom,
+      rgba(73, 9, 11, 0.25) 0%,
+      transparent 60%);
+}
+
+/* Hero content wrapper — centered column */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 24px;
+}
+
+/* Lockup: logo left + title right */
+.hero-lockup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  animation: heroFadeUp 1s ease-out 0.3s both;
+}
+
+/* Logo sized to match two-line title height */
+.hero-logo-watermark {
+  width: auto;
+  height: clamp(120px, 18vw, 210px);
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  opacity: 1;
+  flex-shrink: 0;
+  filter: brightness(1.2);
+}
+
+/* Band name — two lines */
+.hero-title {
+  font-family: var(--font-main);
+  font-size: clamp(36px, 7vw, 80px);
+  font-weight: 700;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  color: var(--color-white);
+  margin: 0;
+  line-height: 1.1;
+  text-shadow: 0 4px 40px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Decorative horizontal rule */
+.hero-rule {
+  width: 60px;
+  height: 2px;
+  background-color: var(--color-white);
+  margin: 24px auto;
+  animation: heroFadeIn 1s ease-out 0.7s both;
+}
+
+/* Subtitle */
+.hero-subtitle {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  color: var(--color-white);
+  margin: 0;
+  opacity: 0;
+  animation: heroFadeUp 1s ease-out 0.9s both;
+}
+
+/* Bigger dot separator */
+.hero-dot {
+  font-size: 20px;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+/* Scroll indicator */
+.hero-scroll {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+  text-decoration: none;
+  color: var(--color-white);
+  opacity: 0;
+  animation: heroFadeIn 1s ease-out 1.4s both;
+}
+
+.hero-scroll-text {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.hero-scroll-line {
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--color-white), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+/* --- Hero Animations --- */
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scrollPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scaleY(0.6);
+    transform-origin: top;
+  }
+  50% {
+    opacity: 0.8;
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+}
+
+/* ============================================================
+   ABOUT SECTION
+   ============================================================ */
+.about {
+  background-color: var(--color-white);
+}
+
+.about-text {
+  max-width: 700px;
+  margin: 40px auto 0;
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--color-dark);
+  text-align: center;
+}
+
+/* ============================================================
+   EVENTS SECTION
+   ============================================================ */
+.events {
+  background-color: var(--color-white);
+}
+
+.events-list {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.event-row {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  padding: 28px 32px;
+  gap: 24px;
+  transition: background-color 0.3s ease;
+}
+
+.event-row:hover {
+  background-color: #22252b;
+}
+
+/* Date block */
+.event-date {
+  min-width: 80px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.event-date-day {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.event-date-month {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* Vertical separator */
+.event-separator {
+  width: 1px;
+  height: 56px;
+  background-color: rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+}
+
+/* Event details */
+.event-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.event-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.event-description {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 4px;
+}
+
+.event-location {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Event action buttons */
+.event-actions {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.btn-event {
+  display: inline-block;
+  padding: 10px 20px;
+  font-family: var(--font-main);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: var(--color-white);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-event:hover {
+  background-color: var(--color-white);
+  color: var(--color-dark);
+  border-color: var(--color-white);
+}
+
+/* No events message */
+.no-events {
+  text-align: center;
+  padding: 60px 24px;
+  color: var(--color-gray);
+  font-size: 16px;
+}
+
+/* ============================================================
+   VIDEOS SECTION
+   ============================================================ */
+.videos {
+  background-color: var(--color-white);
+}
+
+.videos-grid {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.video-card {
+  position: relative;
+}
+
+.video-card iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  display: block;
+}
+
+.video-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 12px;
+  color: var(--color-dark);
+}
+
+/* ============================================================
+   INSTAGRAM SECTION
+   ============================================================ */
+.instagram {
+  background-color: var(--color-white);
+}
+
+.instagram-grid {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+
+.instagram-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  background-color: #f0f0f0;
+}
+
+.instagram-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.instagram-item:hover img {
+  transform: scale(1.05);
+}
+
+.instagram-item a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Instagram embed fallback */
+.instagram-embed-container {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Facebook Page Plugin */
+.facebook-embed-container {
+  margin-top: 48px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 500px;
+  width: 100%;
+}
+
+.facebook-embed-container .fb-page,
+.facebook-embed-container .fb-page span,
+.facebook-embed-container .fb-page span iframe {
+  width: 100% !important;
+}
+
+/* Social follow buttons row */
+.social-follow-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.instagram-follow-btn {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 14px 32px;
+  font-family: var(--font-main);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 2px solid var(--color-red);
+  color: var(--color-red);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.instagram-follow-btn:hover {
+  background-color: var(--color-red);
+  color: var(--color-white);
+}
+
+/* --- YouTube Button --- */
+.btn-youtube {
+  display: inline-block;
+  padding: 14px 32px;
+  font-family: var(--font-main);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 2px solid var(--color-red);
+  color: var(--color-red);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-youtube:hover {
+  background-color: var(--color-red);
+  color: var(--color-white);
+}
+
+/* ============================================================
+   CONTACT SECTION
+   ============================================================ */
+.contact {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+}
+
+.contact .divider::before,
+.contact .divider::after {
+  background-color: var(--color-white);
+}
+
+.contact .divider-circle {
+  border-color: var(--color-white);
+}
+
+.contact-info {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.contact-item {
+  text-align: center;
+}
+
+.contact-item-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 8px;
+}
+
+.contact-item-value {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.contact-item-value a {
+  color: var(--color-white);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.contact-item-value a:hover {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background-color: var(--color-white);
+  padding: 80px 0 40px;
+  text-align: center;
+}
+
+.footer-heading {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--color-dark);
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.footer-social a {
+  color: var(--color-dark);
+  font-size: 22px;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: var(--color-red);
+}
+
+.footer-copyright {
+  margin-top: 40px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-gray);
+}
+
+/* ============================================================
+   BUTTONS (General)
+   ============================================================ */
+.btn-primary {
+  display: inline-block;
+  padding: 14px 32px;
+  font-family: var(--font-main);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background-color: var(--color-red);
+  color: var(--color-white);
+  border: 2px solid var(--color-red);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-dark);
+  border-color: var(--color-dark);
+  color: var(--color-white);
+}
+
+.btn-outline {
+  display: inline-block;
+  padding: 14px 32px;
+  font-family: var(--font-main);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--color-red);
+  border: 2px solid var(--color-red);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-red);
+  color: var(--color-white);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .videos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-row {
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 24px;
+  }
+
+  .event-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .instagram-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .section-padding {
+    padding: 40px 0;
+  }
+
+  .hero {
+    min-height: 100vh;
+  }
+
+  .hero-logo-watermark {
+    height: clamp(70px, 14vw, 100px);
+  }
+
+  .hero-lockup {
+    gap: 20px;
+  }
+
+  .hero-title {
+    letter-spacing: 6px;
+  }
+
+  .hero-subtitle {
+    font-size: 11px;
+    letter-spacing: 5px;
+  }
+
+  .hero-rule {
+    width: 40px;
+    margin: 16px auto;
+  }
+
+  .hero-scroll {
+    bottom: 24px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .navbar-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-white);
+    flex-direction: column;
+    padding: 24px;
+    gap: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar-social {
+    display: none;
+  }
+
+  .event-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .event-separator {
+    width: 100%;
+    height: 1px;
+  }
+
+  .event-date {
+    text-align: left;
+  }
+
+  .contact-info {
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .instagram-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-heading {
+    font-size: 18px;
+    letter-spacing: 4px;
+  }
+}

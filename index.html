@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Midland Project – Brass Band aus Olten. Brassiger Blechmusiksound seit 2023.">
+  <title>Midland Project</title>
+
+  <!-- Google Fonts: Josefin Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome (social icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/Midland Logo.png">
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="navbar-logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+        <img src="assets/Midland Logo.png" alt="Midland Project Logo">
+      </a>
+
+      <ul class="navbar-links" id="navLinks">
+        <li><a href="#about">Über Uns</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#videos">Videos</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+
+      <div class="navbar-social">
+        <a href="https://www.facebook.com/p/Midland-Project-61557265494650/" target="_blank" rel="noopener" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/midland_project_olten/" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.youtube.com/@guggemedia/search?query=Midland%20Project" target="_blank" rel="noopener" aria-label="YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Menü öffnen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="home">
+    <!-- Background photo -->
+    <div class="hero-bg">
+      <img src="assets/midland_concert_group_photo.jpg" alt="" class="hero-bg-img">
+    </div>
+    <!-- Dark overlay with red tint -->
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <div class="hero-lockup">
+        <img src="assets/Midland Logo (original).png" alt="" class="hero-logo-watermark">
+        <h1 class="hero-title"><span>MIDLAND</span><span>PROJECT</span></h1>
+      </div>
+      <div class="hero-rule"></div>
+      <p class="hero-subtitle">Brass Band <span class="hero-dot">&bull;</span> Olten</p>
+    </div>
+
+    <!-- Scroll indicator -->
+    <a href="#about" class="hero-scroll" aria-label="Scroll down">
+      <span class="hero-scroll-text">Entdecken</span>
+      <span class="hero-scroll-line"></span>
+    </a>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section class="about section-padding" id="about">
+    <div class="container text-center">
+      <h2 class="section-title">Über Uns</h2>
+      <div class="divider">
+        <span class="divider-circle"></span>
+      </div>
+      <p class="about-text">
+        Das Midland Project wurde im Juli 2023 ins Leben gerufen. Es besteht aus
+        ambitionierten Musiker/innen, welche gemeinsam brassigen Blechmusiksound
+        zum Besten geben wollen. Die Saison dauert von April bis September. Die
+        Proben finden während dieser Zeit jeden 2. Freitagabend in Olten statt.
+        Die Stücke werden sowohl zu Hause als auch gemeinsam geprobt.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== EVENTS ========== -->
+  <section class="events section-padding" id="events">
+    <div class="container text-center">
+      <span class="eyebrow">Nächste Auftritte</span>
+      <h2 class="section-title">Events</h2>
+      <div class="divider">
+        <span class="divider-circle"></span>
+      </div>
+    </div>
+    <div class="container">
+      <div class="events-list" id="eventsList">
+        <!-- Events are loaded dynamically via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== VIDEOS ========== -->
+  <section class="videos section-padding" id="videos">
+    <div class="container text-center">
+      <span class="eyebrow">GuggeMedia</span>
+      <h2 class="section-title">Videos</h2>
+      <div class="divider">
+        <span class="divider-circle"></span>
+      </div>
+    </div>
+    <div class="container">
+      <div class="videos-grid" id="videosGrid">
+        <!-- Videos are loaded dynamically via JavaScript -->
+      </div>
+      <div class="text-center" style="margin-top: 40px;">
+        <a href="https://www.youtube.com/@guggemedia/search?query=Midland%20Project" target="_blank" rel="noopener" class="btn-youtube">
+          Alle Videos auf YouTube <i class="fab fa-youtube" style="margin-left: 8px;"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="contact section-padding" id="contact">
+    <div class="container text-center">
+      <h2 class="section-title" style="color: var(--color-white);">Kontakt</h2>
+      <div class="divider">
+        <span class="divider-circle"></span>
+      </div>
+
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-item-label">Email</div>
+          <div class="contact-item-value">
+            <a href="mailto:kontakt@midlandproject.ch">kontakt@midlandproject.ch</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-social">
+      <a href="https://www.facebook.com/p/Midland-Project-61557265494650/" target="_blank" rel="noopener" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://www.instagram.com/midland_project_olten/" target="_blank" rel="noopener" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.youtube.com/@guggemedia/search?query=Midland%20Project" target="_blank" rel="noopener" aria-label="YouTube">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </div>
+
+    <p class="footer-copyright">
+      &copy; 2026 Midland Project <span style="font-size: 16px;">&middot;</span> Olten
+    </p>
+  </footer>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+Do not use the playwright MCP server for testing. Instead, we will use the VSCode built-in browser, and whenever I need to talk to you about a part of the website, I will just select it so that you have access to the specific code for that part and you know exactly what I am talking about.

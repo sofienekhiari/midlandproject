@@ -1,0 +1,33 @@
+<svg viewBox="0 0 1280 400" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    Midland Project wordmark lockup
+    M: left peak & right peak at same y=0
+        left stroke: (14,0) → (14,186)  [one line height]
+        left diagonal: (14,0) → (116,130)  [down to V, shorter than bases]
+        right diagonal: (116,130) → (218,0)  [up to right peak]
+        right stroke: (218,0) → (218,386)  [full two-line height]
+    Middle V base is HIGHER than left/right bases.
+  -->
+
+  <!-- Asymmetric M -->
+  <line x1="14" y1="0" x2="14" y2="186"
+        stroke="white" stroke-width="24" stroke-linecap="square"/>
+  <line x1="14" y1="0" x2="116" y2="130"
+        stroke="white" stroke-width="24" stroke-linecap="square"/>
+  <line x1="116" y1="130" x2="218" y2="0"
+        stroke="white" stroke-width="24" stroke-linecap="square"/>
+  <line x1="218" y1="0" x2="218" y2="386"
+        stroke="white" stroke-width="24" stroke-linecap="square"/>
+
+  <!-- IDLAND (top row) -->
+  <text x="270" y="186" fill="white"
+        font-family="'Josefin Sans', sans-serif" font-weight="400"
+        font-size="258" letter-spacing="10"
+        text-rendering="geometricPrecision">IDLAND</text>
+
+  <!-- PROJECT (bottom row, aligned to span from I to N) -->
+  <text x="270" y="370" fill="white"
+        font-family="'Josefin Sans', sans-serif" font-weight="400"
+        font-size="165" letter-spacing="16"
+        text-rendering="geometricPrecision">PROJECT</text>
+</svg>
