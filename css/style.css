@@ -64,6 +64,31 @@ a:hover {
 
 .section-padding {
   padding: 70px 0;
+  scroll-margin-top: 40px;
+}
+
+/* ---- Scroll-reveal animations ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered children (event rows, video cards) */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.stagger-item.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .text-center {
@@ -134,6 +159,12 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 100;
+  box-shadow: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
 }
 
 .navbar .container {
@@ -143,8 +174,9 @@ a:hover {
 }
 
 .navbar-logo img {
-  height: 44px;
+  height: 56px;
   width: auto;
+  margin: -6px 0;
 }
 
 .navbar-links {
@@ -666,6 +698,64 @@ a:hover {
 .btn-youtube:hover {
   background-color: var(--color-red);
   color: var(--color-white);
+}
+
+/* ============================================================
+   BOOKING SECTION
+   ============================================================ */
+.booking {
+  background-color: var(--color-red);
+  color: var(--color-white);
+}
+
+.booking .eyebrow {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.booking .divider::before,
+.booking .divider::after {
+  background-color: var(--color-white);
+}
+
+.booking .divider-circle {
+  border-color: var(--color-white);
+}
+
+.booking-info {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.booking-item {
+  text-align: center;
+}
+
+.booking-item-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 8px;
+}
+
+.booking-item-value {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.booking-item-value a {
+  color: var(--color-white);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.booking-item-value a:hover {
+  color: var(--color-white);
+  text-decoration: underline;
 }
 
 /* ============================================================

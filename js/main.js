@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
   loadEvents();
   loadVideos();
   initMobileMenu();
+  initNavbarShadow();
+  initScrollReveal();
 });
 
 /* ============================================================
@@ -211,4 +213,92 @@ function escapeHTML(str) {
   const div = document.createElement("div");
   div.textContent = str;
   return div.innerHTML;
+}
+
+/* ============================================================
+   NAVBAR SHADOW ON SCROLL
+   ============================================================ */
+
+/**
+ * Add subtle shadow to navbar once user scrolls past the hero.
+ */
+function initNavbarShadow() {
+  const navbar = document.querySelector(".navbar");
+  if (!navbar) return;
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 80) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+  }, { passive: true });
+}
+
+/* ============================================================
+   SCROLL-REVEAL ANIMATIONS
+   ============================================================ */
+
+/**
+ * Observe sections and stagger children for entrance animations.
+ */
+function initScrollReveal() {
+  // Reveal sections
+  const sections = document.querySelectorAll(".section-padding");
+  sections.forEach(section => section.classList.add("reveal"));
+
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        sectionObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  sections.forEach(section => sectionObserver.observe(section));
+
+  // Stagger event rows and video cards
+  initStaggerObserver(".events-list", ".event-row");
+  initStaggerObserver(".videos-grid", ".video-card");
+}
+
+/**
+ * Observe a container and stagger-animate its children.
+ */
+function initStaggerObserver(containerSelector, childSelector) {
+  const container = document.querySelector(containerSelector);
+  if (!container) return;
+
+  // Use MutationObserver to wait for dynamically loaded content
+  const mutationObs = new MutationObserver(() => {
+    const children = container.querySelectorAll(childSelector);
+    if (children.length === 0) return;
+
+    // Stop watching once content is loaded
+    mutationObs.disconnect();
+
+    // Add stagger-item class to each child
+    children.forEach(child => child.classList.add("stagger-item"));
+
+    // Observe the container
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Stagger each child with a delay
+          const items = entry.target.querySelectorAll(".stagger-item");
+          items.forEach((item, i) => {
+            setTimeout(() => {
+              item.classList.add("visible");
+            }, i * 120);
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    observer.observe(container);
+  });
+
+  mutationObs.observe(container, { childList: true });
 }

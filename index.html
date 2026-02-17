@@ -25,13 +25,14 @@
   <!-- ========== NAVIGATION ========== -->
   <nav class="navbar">
     <div class="container">
-      <a href="#" class="navbar-logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+      <a href="#" class="navbar-logo" onclick="window.scrollTo({top:0,behavior:'smooth'});history.replaceState(null,null,' ');return false;">
         <img src="assets/Midland Logo.png" alt="Midland Project Logo">
       </a>
 
       <ul class="navbar-links" id="navLinks">
         <li><a href="#about">Über Uns</a></li>
-        <li><a href="#events">Events</a></li>
+        <li><a href="#booking">Booking</a></li>
+        <li><a href="#events">Auftritte</a></li>
         <li><a href="#videos">Videos</a></li>
         <li><a href="#contact">Kontakt</a></li>
       </ul>
@@ -99,11 +100,29 @@
     </div>
   </section>
 
+  <!-- ========== BOOKING ========== -->
+  <section class="booking section-padding" id="booking">
+    <div class="container text-center">
+      <h2 class="section-title" style="color: var(--color-white);">Booking</h2>
+      <div class="divider">
+        <span class="divider-circle"></span>
+      </div>
+
+      <div class="booking-info">
+        <div class="booking-item">
+          <div class="booking-item-label">Email</div>
+          <div class="booking-item-value">
+            <a href="mailto:tour@midlandproject.ch">tour@midlandproject.ch</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ========== EVENTS ========== -->
   <section class="events section-padding" id="events">
     <div class="container text-center">
-      <span class="eyebrow">Nächste Auftritte</span>
-      <h2 class="section-title">Events</h2>
+      <h2 class="section-title">Auftritte</h2>
       <div class="divider">
         <span class="divider-circle"></span>
       </div>
@@ -118,7 +137,6 @@
   <!-- ========== VIDEOS ========== -->
   <section class="videos section-padding" id="videos">
     <div class="container text-center">
-      <span class="eyebrow">GuggeMedia</span>
       <h2 class="section-title">Videos</h2>
       <div class="divider">
         <span class="divider-circle"></span>
