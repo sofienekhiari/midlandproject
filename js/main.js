@@ -80,7 +80,7 @@ function renderEventRow(event) {
       <div class="event-details">
         <div class="event-title">${escapeHTML(event.title)}</div>
         <div class="event-description">${escapeHTML(event.description || "")}</div>
-        <div class="event-location">${escapeHTML(event.venue)} · ${escapeHTML(event.location)}</div>
+        <div class="event-location">${event.venue ? escapeHTML(event.venue) + " · " : ""}${escapeHTML(event.location)}</div>
       </div>
       <div class="event-actions">
         ${ticketBtn}

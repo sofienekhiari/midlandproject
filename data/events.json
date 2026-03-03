@@ -1,7 +1,7 @@
 [
   {
-    "title": "Auftritt Summer Jam Laufenburg D",
-    "venue": "Summer Jam Laufenburg",
+    "title": "Summer Jam Laufenburg",
+    "venue": "",
     "location": "79725 Laufenburg, Deutschland",
     "date": "2026-06-20",
     "time": "16:00",
@@ -9,8 +9,17 @@
     "ticketLink": ""
   },
   {
-    "title": "Auftritt Jungtambourenfest Biberist",
-    "venue": "Jungtambourenfest",
+    "title": "Brass in Town",
+    "venue": "",
+    "location": "Brig (VS), Schweiz",
+    "date": "2026-09-12",
+    "time": "10:00",
+    "description": "",
+    "ticketLink": ""
+  },
+  {
+    "title": "Jungtambourenfest Biberist",
+    "venue": "",
     "location": "Biberist (SO), Schweiz",
     "date": "2026-09-19",
     "time": "20:00",
