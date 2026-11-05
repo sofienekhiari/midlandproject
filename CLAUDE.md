@@ -3,4 +3,4 @@
 ## Git
 
 - Committing changes is allowed.
-- Pushing to the remote is not allowed. Never run `git push` (including force pushes or pushing tags) in this project.
+- Never push to the remote on your own initiative. Only run `git push` when the user explicitly asks for it.
