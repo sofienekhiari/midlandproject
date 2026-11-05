@@ -79,7 +79,7 @@ a:hover {
   transform: translateY(0);
 }
 
-/* Staggered children (event rows) */
+/* Staggered children (event rows, video cards) */
 .stagger-item {
   opacity: 0;
   transform: translateY(20px);
@@ -557,6 +557,38 @@ a:hover {
 }
 
 /* ============================================================
+   VIDEOS SECTION
+   ============================================================ */
+.videos {
+  background-color: var(--color-white);
+}
+
+.videos-grid {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.video-card {
+  position: relative;
+}
+
+.video-card iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  display: block;
+}
+
+.video-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 12px;
+  color: var(--color-dark);
+}
+
+/* ============================================================
    INSTAGRAM SECTION
    ============================================================ */
 .instagram {
@@ -642,6 +674,28 @@ a:hover {
 }
 
 .instagram-follow-btn:hover {
+  background-color: var(--color-red);
+  color: var(--color-white);
+}
+
+/* --- YouTube Button --- */
+.btn-youtube {
+  display: inline-block;
+  padding: 14px 32px;
+  font-family: var(--font-main);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 2px solid var(--color-red);
+  color: var(--color-red);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-youtube:hover {
   background-color: var(--color-red);
   color: var(--color-white);
 }
@@ -795,6 +849,10 @@ a:hover {
 
 /* Tablet */
 @media (max-width: 900px) {
+  .videos-grid {
+    grid-template-columns: 1fr;
+  }
+
   .event-row {
     flex-wrap: wrap;
     gap: 16px;

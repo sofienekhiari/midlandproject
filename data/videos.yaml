@@ -1,0 +1,13 @@
+# YouTube videos to embed on the website
+# Source: Midland Project channel (@midland-project-olten)
+# Add new videos by appending a new entry with the YouTube video ID and title
+# Ordered by the date in the title, newest first
+videos:
+  - id: "42lh8n8_szw"
+    title: "9 to 5 Dolly Parton - Zofingen 08/2026"
+  - id: "AOq8Ro1pJIM"
+    title: "Flashlight - Rolis Summerjam 06/2026"
+  - id: "bP2bYKfGQdY"
+    title: "Tattoo - Auftritt Olten 09/2025"
+  - id: "bk8P6Fmmkn0"
+    title: "Air is Free - Brass Sur Place 06/2025"
