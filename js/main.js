@@ -1,11 +1,10 @@
 /* ============================================================
    Midland Project — Main JavaScript
-   Loads events from JSON, videos from YAML, and handles UI.
+   Loads events from JSON and handles UI.
    ============================================================ */
 
 document.addEventListener("DOMContentLoaded", () => {
   loadEvents();
-  loadVideos();
   initMobileMenu();
   initNavbarShadow();
   initScrollReveal();
@@ -90,95 +89,6 @@ function renderEventRow(event) {
 }
 
 /* ============================================================
-   VIDEOS — Load from data/videos.yaml (simple parsing)
-   ============================================================ */
-
-/**
- * Load videos from the YAML data file and render them.
- */
-async function loadVideos() {
-  const container = document.getElementById("videosGrid");
-  if (!container) return;
-
-  try {
-    const response = await fetch("data/videos.yaml");
-    if (!response.ok) throw new Error("Videos konnten nicht geladen werden.");
-    const text = await response.text();
-    const videos = parseSimpleYAML(text);
-
-    if (videos.length === 0) {
-      container.innerHTML = '<p class="no-events">Keine Videos verfügbar.</p>';
-      return;
-    }
-
-    // Render each video card
-    container.innerHTML = videos.map(video => renderVideoCard(video)).join("");
-  } catch (err) {
-    console.error("Fehler beim Laden der Videos:", err);
-    container.innerHTML = '<p class="no-events">Videos konnten nicht geladen werden.</p>';
-  }
-}
-
-/**
- * Parse a simple YAML list of videos.
- * Expects entries with `id` and `title` fields.
- */
-function parseSimpleYAML(yamlText) {
-  const videos = [];
-  const lines = yamlText.split("\n");
-  let current = null;
-
-  for (const line of lines) {
-    const trimmed = line.trim();
-
-    // Skip comments and empty lines
-    if (trimmed.startsWith("#") || trimmed === "" || trimmed === "videos:") {
-      continue;
-    }
-
-    // New entry
-    if (trimmed.startsWith("- id:")) {
-      if (current) videos.push(current);
-      current = { id: extractYAMLValue(trimmed.replace("- id:", "")) };
-    } else if (trimmed.startsWith("id:") && !current) {
-      current = { id: extractYAMLValue(trimmed.replace("id:", "")) };
-    } else if (trimmed.startsWith("title:") && current) {
-      current.title = extractYAMLValue(trimmed.replace("title:", ""));
-    }
-  }
-
-  // Push last entry
-  if (current) videos.push(current);
-
-  return videos;
-}
-
-/**
- * Extract a YAML value, stripping quotes.
- */
-function extractYAMLValue(val) {
-  return val.trim().replace(/^["']|["']$/g, "");
-}
-
-/**
- * Render a single video card with YouTube embed.
- */
-function renderVideoCard(video) {
-  return `
-    <div class="video-card">
-      <iframe
-        src="https://www.youtube.com/embed/${video.id}"
-        title="${escapeHTML(video.title)}"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-        loading="lazy"
-      ></iframe>
-      <div class="video-card-title">${escapeHTML(video.title)}</div>
-    </div>
-  `;
-}
-
-/* ============================================================
    MOBILE MENU
    ============================================================ */
 
@@ -258,9 +168,8 @@ function initScrollReveal() {
 
   sections.forEach(section => sectionObserver.observe(section));
 
-  // Stagger event rows and video cards
+  // Stagger event rows
   initStaggerObserver(".events-list", ".event-row");
-  initStaggerObserver(".videos-grid", ".video-card");
 }
 
 /**
